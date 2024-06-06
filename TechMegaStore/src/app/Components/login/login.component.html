@@ -1,1 +1,40 @@
-<p>login works!</p>
+    <!-- <div class="body"> -->
+    <div class="body">
+        <mat-card class="loginCard">
+            <div class="header">
+                <h2>Login</h2>
+            </div>
+
+            <mat-card-content style="padding-bottom: 15px;">
+                <!--DENTRO DE ESTE CREAREMOS NUESTRO FORMULARIO -->
+                <form [formGroup]="formLogin" (ngSubmit)="logInSesion()">
+                    <!-- CAMPO PARA EL EMAIL -->
+                    <mat-form-field class="full-width" appearance="outline">
+                        <mat-label>Email</mat-label>
+                        <!-- con este input vamos a relacionar el campo de nuestro formulario -->
+                        <input formControlName="email" matInput autocomplete="off"> 
+                        <mat-icon matSuffix>mail</mat-icon>
+                    </mat-form-field>
+
+                    <!-- CAMPO PARA EL PASSWORD -->
+                    <mat-form-field class="full-width" appearance="outline">
+                        <mat-label>Password</mat-label>
+                        <!-- con este input vamos a relacionar el campo de nuestro formulario -->
+                        <input [type]="ocultPassword ? 'password':'text'"
+                        formControlName="password" matInput autocomplete="off"> 
+                        <button mat-icon-button matSuffix (click)="ocultPassword = !ocultPassword" type="button">
+                            <mat-icon matSuffix>{{ocultPassword ? 'visibility_off': 'visibility'}}</mat-icon>
+                        </button>
+                    </mat-form-field>
+                    <button class="full-width" mat-raised-button color="primary" type="submit" [disabled]="formLogin.invalid">INGRESAR
+                        <mat-icon matSuffix>login</mat-icon>
+                    </button>
+ 
+                </form>
+
+            </mat-card-content>
+            <mat-card-footer>
+                <mat-progress-bar mode="indeterminate" *ngIf="showLoading"></mat-progress-bar>
+            </mat-card-footer>
+        </mat-card>
+    </div>

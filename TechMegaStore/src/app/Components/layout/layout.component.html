@@ -1,1 +1,63 @@
-<p>layout works!</p>
+<mat-toolbar color="primary">
+    <mat-toolbar-row>
+        <h1>TechMegaStore</h1>
+        <button mat-icon-button (click)="sidenav.toggle()"><!--Cuando haga click en el boton traera el componente #sidenav -->
+            <mat-icon>menu</mat-icon>
+          
+        </button>
+    </mat-toolbar-row>
+</mat-toolbar>
+
+<mat-sidenav-container> <!--CONTENERDOR DEL MENU -->
+    <mat-sidenav #sidenav opened="true" mode="side" style="width: 200px;"> 
+        <mat-nav-list>
+
+            <!-- Agregamos todos los menus que tendran nuestro sistema -->
+
+             <!-- Menu de dashboard asi como el link de su paginacion -->
+            <mat-list-item routerLink="/pages/dashboard" style="margin-bottom: 30px;">
+                <mat-icon mat-list-icon>dashboard</mat-icon>
+                <div mat-line>DashBoard</div>
+            </mat-list-item>
+
+             <!-- Menu de usuarios asi como el link de su paginacion -->
+            <mat-list-item routerLink="/pages/useer" style="margin-bottom: 30px;">
+                <mat-icon mat-list-icon>group</mat-icon>
+                <div mat-line>Users</div>
+            </mat-list-item>
+
+             <!-- Menu de productos asi como el link de su paginacion -->
+            <mat-list-item routerLink="/pages/product" style="margin-bottom: 30px;">
+                <mat-icon mat-list-icon>collections_bookmark</mat-icon>
+                <div mat-line>Products</div>
+            </mat-list-item>
+
+             <!-- Menu de ventas asi como el link de su paginacion -->
+            <mat-list-item routerLink="/pages/sale" style="margin-bottom: 30px;">
+                <mat-icon mat-list-icon>currency_exchange</mat-icon>
+                <div mat-line>Sales</div>
+            </mat-list-item>
+
+             <!-- Menu de historial de ventas asi como el link de su paginacion -->
+            <mat-list-item routerLink="/pages/history_sale" style="margin-bottom: 30px;">
+                <mat-icon mat-list-icon>edit_note</mat-icon>
+                <div mat-line>History Sale</div>
+            </mat-list-item>
+
+              <!-- Menu de reportes asi como el link de su paginacion -->
+              <mat-list-item routerLink="/pages/report" style="margin-bottom: 30px;">
+                <mat-icon mat-list-icon>receipt</mat-icon>
+                <div mat-line>Reports</div>
+            </mat-list-item>
+            
+        </mat-nav-list>
+    </mat-sidenav>
+    <!-- Necesitamos contenido donde estara renderizando nuestra pagina -->
+    <mat-sidenav-content>
+        <div style="height:90vh;">
+            <router-outlet>
+                <!-- Aqui se estara visualizando cada pagina que vamos a tener -->
+            </router-outlet>
+        </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>
