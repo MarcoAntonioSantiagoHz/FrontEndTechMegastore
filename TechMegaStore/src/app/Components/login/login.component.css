@@ -1,23 +1,70 @@
-.body{
-    display: flex;
-    justify-content: center;
+html, body {
     height: 100%;
-    align-items: center;
-    background-color: #6722c1;
-  
-} 
-
-
-
-.loginCard{
-        max-width: 328px !important;
-        margin: 2em auto;
-        text-align: center;
-        max-height: 600px;
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    /* background-image: url("assets/images/techImage.png"); */
+    background-size: cover;
+    background-position: center;
 }
-.header{
+
+.body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    position: relative;
+}
+
+.loginCard {
+    width: 80%;
+    max-width: 600px;
+    margin: 2em auto;
+    padding: 50px;
+    text-align: center;
+    max-height: 800px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0);
+    position: relative;
+    z-index: 1;
+}
+
+.header {
     text-align: center;
 }
-.full-width{
+
+.header .logo {
+    width: 100px;
+    margin-bottom: 20px;
+}
+
+.full-width {
     width: 80%;
+}
+
+.mat-form-field {
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.custom-shape-divider-bottom-1717890843 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
+}
+
+.custom-shape-divider-bottom-1717890843 svg {
+    position: relative;
+    display: block;
+    width: calc(132% + 1.3px);
+    height: 149px;
+}
+
+.custom-shape-divider-bottom-1717890843 .shape-fill {
+    fill: #FFFFFF;
 }
