@@ -1,0 +1,98 @@
+<h2 mat-dialog-title>{{titleAction}} Usuario</h2>
+
+<mat-dialog-content>
+    <!-- Creacion de nuestro formulario, reibira un grupo atraves de fromGroup -->
+    <form [formGroup]="formUseer">
+        <!-- simplemente para ordenar columnas y filas -->
+        <!-- columnas 1, alto por cada fila: 100px -->
+        <mat-grid-list cols="1" rowHeight="100px">
+
+            <!-- Creamos nuestra primer fila campo de nombre completo-->
+            <mat-grid-tile>
+                <!-- Ponemos nuestro campo de formulario  -->
+                <mat-form-field appearance="outline">
+                    <!-- etiqueta para pintar el label -->
+                    <mat-label>Nombre Completo</mat-label>
+                    <input matInput autocomplete="off" formControlName="completeName">
+                    <mat-icon matSuffix>account-box</mat-icon>
+                </mat-form-field>
+            </mat-grid-tile>
+
+            <!-- Creamos nuestra segunda fila  campo correo-->
+            <mat-grid-tile>
+                <!-- Ponemos nuestro campo de formulario  -->
+                <mat-form-field appearance="outline">
+                    <!-- etiqueta para pintar el label -->
+                    <mat-label>Correo</mat-label>
+                    <input matInput autocomplete="off" formControlName="email">
+                    <mat-icon matSuffix>account-box</mat-icon>
+                </mat-form-field>
+            </mat-grid-tile>
+
+            <mat-grid-tile>
+                <!-- Creamos nuestra cuarta fila campo contraseña -->
+                <mat-form-field appearance="outline">
+                    <mat-label>Contraseña</mat-label>
+                    <!-- con este input vamos a relacionar el campo de nuestro formulario -->
+                    <input matInput [type]="ocultPassword ? 'password':'text'" formControlName="password">
+                    <button mat-icon-button matSuffix (click)="ocultPassword = !ocultPassword" type="button">
+                        <mat-icon matSuffix>{{ocultPassword ? 'visibility_off': 'visibility'}}</mat-icon>
+                    </button>
+                </mat-form-field>
+            </mat-grid-tile>
+            <!-- </mat-grid-list> -->
+            <!-- Creamos nuestra tercera fila campo rol-->
+            <mat-grid-tile>
+                <!-- Ponemos nuestro campo de formulario  -->
+                <mat-form-field appearance="outline">
+                    <!-- etiqueta para pintar el label -->
+                    <mat-label>Rol</mat-label>
+                    <!-- creamos un desplegable para mostrar los roles admin, cliente, etc -->
+                    <mat-select formControlName="idRole">
+                        <!-- hacemos la iteracion de cada uno de los elementos que tenemos en nuestra variable -->
+                        <!-- creamos un item por cada elemento que esta en nuestra lista de roles -->
+                        <!--Se visualizara el valor -->
+                        <mat-option *ngFor="let item of listRoless" [value]="item.idRole">
+                            <!--Se visualizara el nombre -->
+                            {{item.name}}
+                        </mat-option>
+                    </mat-select>
+
+                </mat-form-field>
+            </mat-grid-tile>
+
+
+
+
+
+            <!-- Creamos nuestra quinta fila campo si es activo o no lo es-->
+            <mat-grid-tile>
+                <!-- Ponemos nuestro campo de formulario  -->
+                <mat-form-field appearance="outline">
+                    <!-- etiqueta para pintar el label -->
+                    <mat-label>Estado</mat-label>
+                    <!-- creamos un desplegable para mostrar si es activo o no-->
+                    <mat-select formControlName="active">
+                        <!--Se visualizara el valor -->
+                        <mat-option value="1">Activo</mat-option>
+                        <mat-option value="0">No Activo</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </mat-grid-tile>
+
+
+
+        </mat-grid-list>
+
+
+    </form>
+</mat-dialog-content>
+
+<!-- Creamos un cuadro de acciones que dara las opciones de guardar/editar, cancelar/volver -->
+<!-- align para alinearse al final  -->
+<mat-dialog-actions align="end">
+    <button mat-raised-button mat-dialog-close color="warn">Volver</button>
+    <!-- tendra la posibilidad de poder desabilitarse cuando alguno de nuestros campos esten vacio de nuestro formulario-->
+    <button mat-raised-button color="primary" [disabled]="formUseer.invalid"
+        (click)="saveEdit_User()">{{bottomAction}}</button>
+</mat-dialog-actions>

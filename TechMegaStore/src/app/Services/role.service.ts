@@ -25,7 +25,7 @@ export class RoleService {
 
   //Metodo para poder obtener la listas de roles
   listRole(): Observable<ResponseApi> {
-    return this.http.get<ResponseApi>(`${this.urlApi}/ListRole`);
+    return this.http.get<ResponseApi>(`${this.urlApi}List`);
   }
 
 

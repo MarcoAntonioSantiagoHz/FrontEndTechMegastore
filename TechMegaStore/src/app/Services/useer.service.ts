@@ -37,24 +37,24 @@ export class UseerService {
   }
   //Metodo para poder obtener la listas de usuarios
   listUsers(): Observable<ResponseApi> {
-    return this.http.get<ResponseApi>(`${this.urlApi}ListUsers`);
+    return this.http.get<ResponseApi>(`${this.urlApi}List`);
   }
 
   //Metodo para guardar un usuario en este caso CREAR
   saveUseer(request: Useer): Observable<ResponseApi> {
     //Nuestra api  ejecuta el metodo post para guardar
-    return this.http.post<ResponseApi>(`${this.urlApi}SaveUseer`, request);
+    return this.http.post<ResponseApi>(`${this.urlApi}SaveUser`, request);
   }
 
   //Metodo para EDITAR un usuario
   editUseer(request: Useer): Observable<ResponseApi> {
     //Nuestra api  ejecuta el metodo put para editar
-    return this.http.put<ResponseApi>(`${this.urlApi}EditUseer`, request);
+    return this.http.put<ResponseApi>(`${this.urlApi}EditUser`, request);
   }
 
   //Metodo para EDITAR un usuario
   deleteUseer(id: number): Observable<ResponseApi> {
     //Nuestra api  ejecuta el metodo delete para eliminar un registro para ello le pasaremos el id
-    return this.http.delete<ResponseApi>(`${this.urlApi}DeleteUseer/${id}`);
+    return this.http.delete<ResponseApi>(`${this.urlApi}DeleteUser/${id}`);
   }
 }
