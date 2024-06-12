@@ -11,6 +11,7 @@ import { ReportComponent } from './Pages/report/report.component';
 
 import { SharedModule } from '../../Reusable/shared/shared.module';
 import { ModalUserComponent } from './Modals/modal-user/modal-user.component';
+import { ModalProductComponent } from './Modals/modal-product/modal-product.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { ModalUserComponent } from './Modals/modal-user/modal-user.component';
     SaleComponent,
     HistorySaleComponent,
     ReportComponent,
-    ModalUserComponent
+    ModalUserComponent,
+    ModalProductComponent
   ],  
   imports: [
     //ARRIBA ES LLAMADO Y AQUI ES IMPORTADO

@@ -26,7 +26,7 @@ export class CategoryService {
   //Metodo para poder obtener la listas de Menus
   listCategory(): Observable<ResponseApi> {
     //Retorna el tipo de dato Getr que nos mostrara toda la lista
-    return this.http.get<ResponseApi>(`${this.urlApi}/ListCategory`);
+    return this.http.get<ResponseApi>(`${this.urlApi}List`);
   }
 
 }

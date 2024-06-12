@@ -28,25 +28,25 @@ export class ProductService {
   
   //Metodo para poder obtener la listas de Productos
   listProducts(): Observable<ResponseApi> {
-    return this.http.get<ResponseApi>(`${this.urlApi}/ListProducts`);
+    return this.http.get<ResponseApi>(`${this.urlApi}List`);
   }
 
   //Metodo para guardar un Producto en este caso CREAR
   saveProduct(request: Product): Observable<ResponseApi> {
     //Nuestra api  ejecuta el metodo post para guardar
-    return this.http.post<ResponseApi>(`${this.urlApi}/SaveProduct`, request);
+    return this.http.post<ResponseApi>(`${this.urlApi}SaveProduct`, request);
   }
 
   //Metodo para EDITAR un Producto
   editProduct(request: Product): Observable<ResponseApi> {
     //Nuestra api  ejecuta el metodo put para editar
-    return this.http.put<ResponseApi>(`${this.urlApi}/EditProduct`, request);
+    return this.http.put<ResponseApi>(`${this.urlApi}EditProduct`, request);
   }
 
   //Metodo para EDITAR un Producto
   deleteProduct(id: number): Observable<ResponseApi> {
     //Nuestra api  ejecuta el metodo delete para eliminar un registro para ello le pasaremos el id
-    return this.http.delete<ResponseApi>(`${this.urlApi}/DeleteProduct/${id}`);
+    return this.http.delete<ResponseApi>(`${this.urlApi}DeleteProduct/${id}`);
   }
 
 }

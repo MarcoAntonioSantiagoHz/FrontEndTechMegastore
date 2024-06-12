@@ -1,0 +1,96 @@
+<h2 mat-dialog-title>{{titleAction}} Producto</h2>
+
+<mat-dialog-content>
+    <!-- Creacion de nuestro formulario, reibira un grupo atraves de fromGroup -->
+    <form [formGroup]="formProduct">
+        <!-- simplemente para ordenar columnas y filas -->
+        <!-- columnas 1, alto por cada fila: 100px -->
+        <mat-grid-list cols="1" rowHeight="100px">
+
+            <!-- Creamos nuestra primer fila campo de nombre -->
+            <mat-grid-tile>
+                <!-- Ponemos nuestro campo de formulario  -->
+                <mat-form-field appearance="outline">
+                    <!-- etiqueta para pintar el label -->
+                    <mat-label>Nombre</mat-label>
+                    <input matInput autocomplete="off" formControlName="name">
+                    <mat-icon matSuffix>fit_screen</mat-icon>
+                </mat-form-field>
+            </mat-grid-tile>
+
+          
+
+
+            <!-- campo para stock -->
+            <mat-grid-tile>
+                <!-- Ponemos nuestro campo de formulario  -->
+                <mat-form-field appearance="outline">
+                    <!-- etiqueta para pintar el label -->
+                    <mat-label>Stock</mat-label>
+                    <input matInput autocomplete="off" formControlName="stock" type="number">
+                    <mat-icon matSuffix>edit_square</mat-icon>
+                </mat-form-field>
+            </mat-grid-tile>
+
+            <!-- campo para el precio del producto -->
+            <mat-grid-tile>
+                <!-- Ponemos nuestro campo de formulario  -->
+                <mat-form-field appearance="outline">
+                    <!-- etiqueta para pintar el label -->
+                    <mat-label>Precio</mat-label>
+                    <input matInput autocomplete="off" formControlName="price">
+                    <mat-icon matSuffix>attach_money</mat-icon>
+                </mat-form-field>
+            </mat-grid-tile>
+
+
+              <!-- Creamos nuestra segunda fila  para poder listar las categorias-->
+
+              <mat-grid-tile>
+                <!-- Ponemos nuestro campo de formulario  -->
+                <mat-form-field appearance="outline">
+                    <!-- etiqueta para pintar el label -->
+                    <mat-label>Categorias</mat-label>
+                    <mat-select formControlName="idCategory">
+                        <!-- hacemos la iteracion de cada uno de los elementos que tenemos en nuestra variable -->
+                        <!-- creamos un item por cada elemento que esta en nuestra lista de Categorias -->
+                        <!--Se visualizara el valor -->
+                        <mat-option *ngFor="let item of listCategory" [value]="item.idCategory">
+                            <!--Se visualizara el nombre -->
+                            {{item.name}}
+                        </mat-option>
+                    </mat-select>
+
+                </mat-form-field>
+            </mat-grid-tile>
+            <!-- Creamos nuestra quinta fila campo si es activo o no lo es-->
+            <mat-grid-tile>
+                <!-- Ponemos nuestro campo de formulario  -->
+                <mat-form-field appearance="outline">
+                    <!-- etiqueta para pintar el label -->
+                    <mat-label>Estado</mat-label>
+                    <!-- creamos un desplegable para mostrar si es activo o no-->
+                    <mat-select formControlName="active">
+                        <!--Se visualizara el valor -->
+                        <mat-option value="1">Activo</mat-option>
+                        <mat-option value="0">No Activo</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </mat-grid-tile>
+
+
+
+        </mat-grid-list>
+
+
+    </form>
+</mat-dialog-content>
+
+<!-- Creamos un cuadro de acciones que dara las opciones de guardar/editar, cancelar/volver -->
+<!-- align para alinearse al final  -->
+<mat-dialog-actions align="end">
+    <button mat-raised-button mat-dialog-close color="warn">Volver</button>
+    <!-- tendra la posibilidad de poder desabilitarse cuando alguno de nuestros campos esten vacio de nuestro formulario-->
+    <button mat-raised-button color="primary" [disabled]="formProduct.invalid"
+        (click)=" saveEdit_Product()">{{bottomAction}}</button>
+</mat-dialog-actions>

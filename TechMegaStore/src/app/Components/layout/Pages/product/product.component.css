@@ -1,0 +1,29 @@
+/* table{
+    width: 100px;
+}
+
+.mat-form-field{
+    font-size: 14px;
+    width: 100px;
+} */
+
+
+.title-products {
+    background-color: #270fd6; /* Color de fondo deseado */
+    
+    padding: 10px; /* Ajusta el relleno según sea necesario */
+    margin: 20px 0px 0px 40px; /* Mantén el margen original */
+    background-color: rgba(164, 55, 206, 0.422);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(8, 21, 160, 0.482);
+}
+
+.dashboard-card-content {
+    background-color: #270fd6; /* Color de fondo deseado */
+    padding: 10px; /* Ajusta el relleno según sea necesario */
+    margin: 20px 0px 0px 40px; /* Mantén el margen original */
+    /* background-color: rgba(203, 29, 29, 0.422); */
+    background-color: rgba(106, 85, 155, 0.422);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(168, 3, 205, 0.717);
+}
