@@ -29,20 +29,20 @@ export class SaleService {
   //Metodo para Registrar una venta
   register(request: Sale): Observable<ResponseApi> {
     //Nuestra api  ejecuta el metodo post para registrar 
-    return this.http.post<ResponseApi>(`${this.urlApi}/Register`, request);
+    return this.http.post<ResponseApi>(`${this.urlApi}Register`, request);
   }
 
   //Metodo para generar un historial de venta
   //Utiliza los parametros de  buscar por, numero de venta, fecha de inicio y fecha de fin
   history(searchFor: string, numberSale: string, startDate: string, dateEnd: string): Observable<ResponseApi> {
     // Método GET en el que colocamos todos los parámetros necesarios en la URL para generar el historial
-    return this.http.get<ResponseApi>(`${this.urlApi}/History?searchFor=${searchFor}&numberSale=${numberSale}&startDate=${startDate}&dateEnd=${dateEnd}`);
+    return this.http.get<ResponseApi>(`${this.urlApi}History?searchFor=${searchFor}&numberSale=${numberSale}&startDate=${startDate}&dateEnd=${dateEnd}`);
   }
   
  //Metodo para generar reporte
   //Utiliza los parametros de fecha de inicio y fecha de fin
   report(startDate: string, dateEnd: string): Observable<ResponseApi> {
     // Método GET en el que colocamos todos los parámetros necesarios en la URL para generar el reporte
-    return this.http.get<ResponseApi>(`${this.urlApi}/Report?startDate=${startDate}&dateEnd=${dateEnd}`);
+    return this.http.get<ResponseApi>(`${this.urlApi}Report?startDate=${startDate}&dateEnd=${dateEnd}`);
   }
 }
