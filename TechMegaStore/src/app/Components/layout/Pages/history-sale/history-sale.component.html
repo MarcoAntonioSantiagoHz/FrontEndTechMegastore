@@ -1,1 +1,148 @@
-<p>Esta es la pagina de historial de ventas </p>
+<h1 class="title-products" style="margin: 20px 0px 0px 40px">Historial De Ventas</h1>
+
+<!-- Personalizamos la tarjeta y la tabla -->
+
+<mat-card style="margin: 20px 40px 40px 40px">
+    <!-- Dentro de esta tarjeta creamos el título -->
+    <mat-card-title>
+
+        <!-- Creamos el contenido -->
+        <mat-card-content>
+            <!-- Creamos nuestro contenido -->
+            <form [formGroup]="formSearch" (ngSubmit)="searchSales()">
+
+                <div class="campos-formulario">
+                    <!-- Creamos nuestros campos  -->
+                    <!-- Agregamos un desplegable -->
+
+                    <mat-form-field appearance="fill">
+                        <!-- etiqueta para pintar el label -->
+                        <mat-label>Buscar Por</mat-label>
+                        <!-- creamos un desplegable para mostrar si es activo o no-->
+                        <mat-select formControlName="searchFor">
+                            <!--Se visualizara la opcion -->
+                            <mat-option *ngFor="let item of optionsSearch" [value]="item.value">
+                                {{item.description}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+
+                    <!-- Campo para buscar por numero de venta -->
+                    <!-- Va validar si es true va a mostrar si es falso va a mostrar la etiqueta  -->
+                    <mat-form-field appearance="fill" *ngIf="formSearch.value.searchFor == 'number'">
+                        <!-- etiqueta para pintar el label -->
+                        <mat-label>Numero Orden</mat-label>
+                        <input matInput autocomplete="off" formControlName="number">
+                    </mat-form-field>
+
+                    <!-- Campo para mostrar el calendario  por fecha de inicio-->
+                    <mat-form-field appearance="fill" *ngIf="formSearch.value.searchFor == 'date'">
+                        <mat-label>Fecha Inicio</mat-label>
+                        <!-- Llamamos el picker1 para que pueda hacer el calendario -->
+                        <input matInput autocomplete="off" formControlName="dateInit" [matDatepicker]="picker1">
+                        <mat-datepicker-toggle matSuffix [for]="picker1"> </mat-datepicker-toggle>
+                        <mat-datepicker #picker1></mat-datepicker>
+                    </mat-form-field>
+
+                    <!-- Campo para mostrar el calendario por fecha de fin -->
+                    <mat-form-field appearance="fill" *ngIf="formSearch.value.searchFor == 'date'">
+                        <mat-label>Fecha Fin</mat-label>
+                        <!-- Llamamos el picker1 para que pueda hacer el calendario -->
+                        <input matInput autocomplete="off" formControlName="dateEnd" [matDatepicker]="picker2">
+                        <mat-datepicker-toggle matSuffix [for]="picker2"> </mat-datepicker-toggle>
+                        <mat-datepicker #picker2></mat-datepicker>
+                    </mat-form-field>
+
+
+                    <!-- Boton para poder realizar la busqueda -->
+                    <button mat-raised-button color="primary" [disabled]="formSearch.invalid" type="submit"
+                        class="boton/buscar">
+                        <mat-icon>search</mat-icon>Buscar
+                    </button>
+                </div>
+            </form>
+
+            <!-- El resultado lo vamos a mostrar en una tabla -->
+             <mat-divider></mat-divider>
+             <mat-divider></mat-divider>
+             <mat-divider></mat-divider>
+             <mat-divider></mat-divider>
+             
+
+
+    <!-- Trabajaremos nuestra tabla -->
+    <!-- separamos la tarjeta del titulo con el de la tabla -->
+    <mat-divider></mat-divider>
+    <mat-divider></mat-divider>
+    <mat-divider></mat-divider>
+    <mat-divider></mat-divider>
+    <!-- contenido de la tarjeta -->
+    <mat-card-content class="dashboard-card-content">
+        <!-- campo para el filtro de nuestra tabla -->
+        <mat-form-field appearance="fill" class="input-filter">
+            <mat-label>Buscar</mat-label>
+            <input matInput (keyup)="applyFilterTable($event)" #input>
+        </mat-form-field>
+
+        <!-- nos permitira resaltar nuestra tabla -->
+        <div class="mat-elevation-z2">
+            <table mat-table [dataSource]="dataSalesList">
+
+                <!-- Tabla proveniente de angular material -->
+
+
+                <ng-container matColumnDef="dateRegistration">
+                    <th mat-header-cell *matHeaderCellDef> Fecha Registro </th>
+                    <td mat-cell *matCellDef="let element"> {{element.dateRegistration}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="documentNumber">
+                    <th mat-header-cell *matHeaderCellDef> Numero De Venta </th>
+                    <td mat-cell *matCellDef="let element"> {{element.documentNumber}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="paymentType">
+                    <th mat-header-cell *matHeaderCellDef> Tipo De Pago </th>
+                    <td mat-cell *matCellDef="let element"> {{element.paymentType}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="total">
+                    <th mat-header-cell *matHeaderCellDef> Total </th>
+                    <td mat-cell *matCellDef="let element"> {{element.totalText}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="accion">
+                    <th mat-header-cell *matHeaderCellDef style="width: 80px;">. </th>
+                    <td mat-cell *matCellDef="let element">
+                        <!-- Personalizar la columna para nuestros botones -->
+                        <!-- Pasa element porque es el usuario -->
+                        <button mat-icon-button color="primary" (click)="showDetailSale(element)"
+                        matTooltip="ver detalle"
+                        >
+                            <mat-icon>visibility</mat-icon>
+                        </button>
+                    </td>
+                </ng-container>
+
+                <!-- le diremos desde donde seran el origen de nuestras columnas de nuestra tabla -->
+
+
+                <tr mat-header-row *matHeaderRowDef="columnTable"></tr>
+                <!-- iterara cada una de las filas -->
+                <tr mat-row *matRowDef="let row; columns:columnTable;"></tr>
+
+                <!-- configuramos una fila en caso de que no exista despues de realizar el filtro -->
+                <tr class="mat-row" *matNoDataRow>
+                    <!-- No hay datos que coincidan con el filtro -->
+                    <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+
+                </tr>
+            </table>
+
+            <!-- Creamos la paginacion -->
+             <mat-paginator [pageSizeOptions]="[5,10,20]"showFirstLastButtons>
+             </mat-paginator>
+        </div>
+
+        </mat-card-content>
+    

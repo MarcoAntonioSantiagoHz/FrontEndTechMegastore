@@ -5,7 +5,7 @@ export interface Sale {
     idSale?: number; //El simbolo ? significa que pueden entrar nulos
     documentNumber?: string;
     paymentType: string;
-    dateRegistration?: string;
+    dateRegistration?: string;//El simbolo ? significa que pueden entrar nulos
     saleTotalText: string;
     saleDetails: SaleDetail[]; //Es un array ahi estara toda la lista 
 }
