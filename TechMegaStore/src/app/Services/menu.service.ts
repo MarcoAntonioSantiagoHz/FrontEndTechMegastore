@@ -27,7 +27,7 @@ export class MenuService {
   listMenu(idUseer:number): Observable<ResponseApi> {
     //Ponemos ? ya que recibe parametros dentro de la url
     //Se puso idUseer ya que asi viene desde nuestra API
-    return this.http.get<ResponseApi>(`${this.urlApi}/ListMenu?idUseer=${idUseer}`);
+    return this.http.get<ResponseApi>(`${this.urlApi}ListMenu?idUseer=${idUseer}`);
   }
 
 

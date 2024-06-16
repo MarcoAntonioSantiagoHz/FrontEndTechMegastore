@@ -29,16 +29,30 @@ export class UtilityAlertsService {
      localStorage.setItem("user",JSON.stringify(userSesion)); 
     }
 
-    //Metodo para obtener la sesion del usuario
-    getSesionUser(userSesion:Sesion){
-      //Obtenemos la data en forma de cadena
-      const dataCadena = localStorage.getItem("user");
-      //Convertimos esa cadena de data en un usuario y ponemos el signo ! para recibir un valor que NO sea NUlo
-      const user = JSON.parse(dataCadena!);
-      //Retornamos el usuario
-      return user;
+    // // Metodo para obtener la sesion del usuario
+    // getSesionUser(userSesion:Sesion){
+    //   //Obtenemos la data en forma de cadena
+    //   const dataCadena = localStorage.getItem("user");
+    //   //Convertimos esa cadena de data en un usuario y ponemos el signo ! para recibir un valor que NO sea NUlo
+    //   const user = JSON.parse(dataCadena!);
+    //   if (dataCadena) {
+    //     return JSON.parse(dataCadena);
+    //   }
+    //   //Retornamos el usuario
+    //   return user;
 
+    // }
+
+
+    // // Metodo 2 para obtener la sesion del usuario
+    getSesionUser(): Sesion | null {
+      const dataCadena = localStorage.getItem("user");
+      if (dataCadena) {
+        return JSON.parse(dataCadena);
+      }
+      return null;
     }
+
 
     //Metodo para poder eliminar la sesion del usuario
     deleteSesionUser(){
