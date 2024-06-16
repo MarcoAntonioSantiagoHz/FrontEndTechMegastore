@@ -1,1 +1,79 @@
-<p>Esta es la pagina de dashboard </p>
+<h2 class="title-products" style="margin: 20px 0px 0px 40px">Resultados De Las Ultimas Semanas</h2>
+
+<!-- Personalizamos la tarjeta y la tabla -->
+
+<mat-card style="margin: 20px 40px 40px 40px">
+
+    <!-- Empieza el diseño del dashboard -->
+     <mat-card-content>
+        <!-- Establecemos cuantas columnas vamos a trabajar, numero de columnas: 3, especificar el alto por cada columna: 100px-->
+         <mat-grid-list cols="3" rowHeight="100px">
+
+            <!-- Creamos nuestra primer columna -->
+            <mat-grid-tile>
+                <!-- Creamos pequeñas tarjetas con una clase "card informacion" -->
+                 <mat-card class="card-info">
+                    <mat-card-header>
+                        <div mat-card-avatar>
+                            <!-- Con esto podremos ingresar un icono -->
+                             <mat-icon color="accent"> payments </mat-icon>
+                        </div>
+                        <mat-card-title> Total Ingresos </mat-card-title>
+                        <mat-card-subtitle>$/MXN.{{totalIncome}}</mat-card-subtitle>
+                    </mat-card-header>
+                 </mat-card>
+            </mat-grid-tile>
+
+
+            
+            <!-- Creamos nuestra segunda columna -->
+            <mat-grid-tile>
+                <!-- Creamos pequeñas tarjetas con una clase "card informacion" -->
+                 <mat-card class="card-info">
+                    <mat-card-header>
+                        <div mat-card-avatar>
+                            <!-- Con esto podremos ingresar un icono -->
+                             <mat-icon color="accent"> sell </mat-icon>
+                        </div>
+                        <mat-card-title> Total De Ventas </mat-card-title>
+                        <mat-card-subtitle>$/MXN.{{totalSales}}</mat-card-subtitle>
+                    </mat-card-header>
+                 </mat-card>
+            </mat-grid-tile>
+            
+            <!-- Creamos nuestra tercer columna -->
+            <mat-grid-tile>
+                <!-- Creamos pequeñas tarjetas con una clase "card informacion" -->
+                 <mat-card class="card-info">
+                    <mat-card-header>
+                        <div mat-card-avatar>
+                            <!-- Con esto podremos ingresar un icono -->
+                             <mat-icon color="primary"> collections_bookmark </mat-icon>
+                        </div>
+                        <mat-card-title> Total De Productos </mat-card-title>
+                        <mat-card-subtitle>$/MXN.{{totalProducts}}</mat-card-subtitle>
+                    </mat-card-header>
+                 </mat-card>
+            </mat-grid-tile>
+         </mat-grid-list>
+
+
+         <!-- Creamos nuestros graficos -->
+          <mat-card style="margin-top: 15px;">
+            <!-- Agregamos nuestro contenido -->
+             <mat-card-content>
+                <!-- Agregamos un div que contendra nuestro grafico -->
+                 <div style="width: 100%; height: 400px;">
+                    <canvas id="chartBars"></canvas>
+                 </div>
+             </mat-card-content>
+          </mat-card>
+
+
+
+
+
+
+     </mat-card-content>
+
+</mat-card>

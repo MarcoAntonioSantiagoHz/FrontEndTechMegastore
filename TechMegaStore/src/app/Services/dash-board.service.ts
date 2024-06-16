@@ -26,7 +26,7 @@ export class DashBoardService {
 
   //Metodo para poder obtener el resumen
   overview(): Observable<ResponseApi> {
-    return this.http.get<ResponseApi>(`${this.urlApi}/Overview`);
+    return this.http.get<ResponseApi>(`${this.urlApi}Overview`);
   }
 
 
