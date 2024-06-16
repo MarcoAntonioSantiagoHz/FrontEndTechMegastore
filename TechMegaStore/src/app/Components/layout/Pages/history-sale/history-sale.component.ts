@@ -57,8 +57,8 @@ export class HistorySaleComponent implements OnInit, AfterViewInit {
   dateInit: Sale[] = [];
   // Datos lista venta
   dataSalesList = new MatTableDataSource(this.dateInit);
-  // Paginación tabla
-  @ViewChild(MatPaginator) paginationTable!: MatPaginator;
+    // Paginación tabla
+    @ViewChild(MatPaginator) paginationTable!: MatPaginator;
 
   constructor(
     // Inyección de dependencias
