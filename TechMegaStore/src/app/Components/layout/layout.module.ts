@@ -13,6 +13,7 @@ import { SharedModule } from '../../Reusable/shared/shared.module';
 import { ModalUserComponent } from './Modals/modal-user/modal-user.component';
 import { ModalProductComponent } from './Modals/modal-product/modal-product.component';
 import { ModalDetailSaleComponent } from './Modals/modal-detail-sale/modal-detail-sale.component';
+import { HomeComponent } from './Pages/home/home.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { ModalDetailSaleComponent } from './Modals/modal-detail-sale/modal-detai
     ReportComponent,
     ModalUserComponent,
     ModalProductComponent,
-    ModalDetailSaleComponent
+    ModalDetailSaleComponent,
+    HomeComponent
   ],  
   imports: [
     //ARRIBA ES LLAMADO Y AQUI ES IMPORTADO

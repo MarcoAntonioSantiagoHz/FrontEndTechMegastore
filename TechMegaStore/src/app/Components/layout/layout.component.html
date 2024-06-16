@@ -13,9 +13,9 @@
             SU ROL {{roleUser}}
         </label>
         <!-- BOTON PARA CERRAR SESION -->
-         <button mat-icon-button (click)="closeSession()">
+        <button mat-icon-button (click)="closeSession()">
             <mat-icon>logout</mat-icon>
-         </button>
+        </button>
 
     </mat-toolbar-row>
 </mat-toolbar>
@@ -25,12 +25,17 @@
         <mat-nav-list>
 
             <!-- Agregamos todos los menus que tendran nuestro sistema -->
+            <mat-list-item routerLink="/pages/home" style="margin-bottom: 30px;">
+                <mat-icon mat-list-icon>home</mat-icon>
+                <div mat-line>Home</div>
+            </mat-list-item>
 
             <!-- Menu de dashboard asi como el link de su paginacion -->
             <mat-list-item routerLink="/pages/dashboard" style="margin-bottom: 30px;">
                 <mat-icon mat-list-icon>dashboard</mat-icon>
                 <div mat-line>DashBoard</div>
             </mat-list-item>
+
 
             <!-- Menu de usuarios asi como el link de su paginacion -->
             <mat-list-item routerLink="/pages/useer" style="margin-bottom: 30px;">
@@ -56,18 +61,18 @@
                 <div mat-line>History Sale</div>
             </mat-list-item>
 
-            <!-- Menu de reportes asi como el link de su paginacion -->
-            <!-- <mat-list-item routerLink="/pages/report" style="margin-bottom: 30px;">
+            <!-- Menu de reportes asi como el link de su paginacion  -->
+            <mat-list-item routerLink="/pages/report" style="margin-bottom: 30px;">
                 <mat-icon mat-list-icon>receipt</mat-icon>
                 <div mat-line>Reports</div>
-            </mat-list-item> -->
+            </mat-list-item>
 
 
             <!-- Menu de reportes asi como el link de su paginacion -->
-            <mat-list-item  *ngFor="let menu of listMenu"  [routerLink]="menu.url">
+            <!-- <mat-list-item  *ngFor="let menu of listMenu"  [routerLink]="menu.url">
                 <mat-icon mat-list-icon>{{menu.icon}}</mat-icon>
                 <div mat-line>{{menu.name}}</div>
-            </mat-list-item>
+            </mat-list-item> -->
 
         </mat-nav-list>
     </mat-sidenav>

@@ -7,6 +7,7 @@ import { SaleComponent } from './Pages/sale/sale.component';
 import { ProductComponent } from './Pages/product/product.component';
 import { HistorySaleComponent } from './Pages/history-sale/history-sale.component';
 import { ReportComponent } from './Pages/report/report.component';
+import { HomeComponent } from './Pages/home/home.component';
 
 
 const routes: Routes = [{
@@ -14,18 +15,19 @@ const routes: Routes = [{
   component: LayoutComponent,
   children: [
     //Para poder visualizar el dashBoard
+    { path: 'home', component: HomeComponent },
     { path: 'dashboard', component: DashBoardComponent },
     // Para poder visualizar la pagina de usuarios
     { path: 'useer', component: UseerComponent },
-     // Para poder visualizar la pagina de productos
+    // Para poder visualizar la pagina de productos
     { path: 'product', component: ProductComponent },
-     // Para poder visualizar la pagina de  ventas
+    // Para poder visualizar la pagina de  ventas
     { path: 'sale', component: SaleComponent },
-     // Para poder visualizar la pagina de  historial de venta
+    // Para poder visualizar la pagina de  historial de venta
     { path: 'history_sale', component: HistorySaleComponent },
-      // Para poder visualizar la pagina de reportes
-      { path: 'report', component: ReportComponent },
-  
+    // Para poder visualizar la pagina de reportes
+    { path: 'report', component: ReportComponent },
+
   ]
 }];
 
